@@ -1,9 +1,10 @@
 
-def test_add_group(app):
+def test_add_group(app, excel_groups):
+    group = excel_groups
     old_list = app.group.get_group_list()
-    app.group.create('test group')
+    app.group.create(group)
     new_list = app.group.get_group_list()
-    old_list.append('test group')
+    old_list.append(group)
     assert sorted(old_list) == sorted(new_list)
 
 
